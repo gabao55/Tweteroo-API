@@ -2,6 +2,8 @@ import express from "express";
 
 const server = express();
 
+server.use(express.json());
+
 const users = [
     {
         username: "spongebob",
@@ -70,6 +72,12 @@ server.get("/tweets", (req, res) => {
         tweet.avatar = userObj.avatar;
     });
     res.send(lastTweets);
+});
+
+server.post("/tweets", (req, res) => {
+    tweets.push(req.body);
+
+    res.send("OK");
 });
 
 
