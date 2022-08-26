@@ -80,5 +80,15 @@ server.post("/tweets", (req, res) => {
     res.send("OK");
 });
 
+server.post("/sign-up", (req, res) => {
+    users.push(req.body);
+
+    res.send("OK");
+});
+
+// server.get("/users", (req, res) => {
+//     res.send(users);
+// });
+
 
 server.listen(5000, () => console.log("Listening to port 5000"));
